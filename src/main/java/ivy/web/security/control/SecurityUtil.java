@@ -40,6 +40,8 @@ public class SecurityUtil {
 				pw.close();
 		}
 	}
+	
+	
 
 	public static void buildSessionUser(HttpSession session, SessionUser user) {
 
