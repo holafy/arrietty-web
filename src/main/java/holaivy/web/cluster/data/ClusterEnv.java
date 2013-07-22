@@ -3,9 +3,10 @@ package holaivy.web.cluster.data;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
+ * 集群部署的环境变量,用于判断集群信息
  * 
- * @author xubch@neusoft.com
- *
+ * @author holaivy@gmail.com
+ * 
  */
 public class ClusterEnv implements InitializingBean {
 
