@@ -1,6 +1,6 @@
 package ivy.web.security.control;
 
-import holaivy.web.log.slf.util.SLU;
+import holaivy.comm.log.slf.util.SLU;
 import ivy.basic.ViException;
 import ivy.core.tool.Str;
 import ivy.web.entry.context.IStartLoginService;
