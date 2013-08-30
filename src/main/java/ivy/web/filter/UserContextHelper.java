@@ -60,7 +60,14 @@ public class UserContextHelper {
 
 	public static void addUserSession(HttpSession session, SessionUser user) {
 		if (user != null && (!Str.isEmpty(user.getUn()))) {
-			session.setAttribute(SessionUser.SESSIONUSER, user);
+			Object obj = session.getAttribute(SessionUser.SESSIONUSER);
+			boolean updateFlag = false;
+			if (obj instanceof SessionUser) {
+				SessionUser sessionuser = (SessionUser) obj;
+				updateFlag = sessionuser == user;
+			}
+			if (!updateFlag)
+				session.setAttribute(SessionUser.SESSIONUSER, user);
 			if (sessions.containsKey(user.getUid())) {
 				removeSessionByUid(user.getUid());
 			}
