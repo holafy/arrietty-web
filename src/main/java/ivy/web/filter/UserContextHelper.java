@@ -68,9 +68,9 @@ public class UserContextHelper {
 			}
 			if (!updateFlag)
 				session.setAttribute(SessionUser.SESSIONUSER, user);
-			else if (sessions.containsKey(user.getUid())) {
-				removeSessionByUid(user.getUid());
-			}
+//			else if (sessions.containsKey(user.getUid())) {
+//				removeSessionByUid(user.getUid());
+//			}
 			sessions.put(user.getUid(), session);
 		}
 	}
