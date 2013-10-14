@@ -31,7 +31,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  * 
  * Servlet Filter implementation class IvySecuritySessionFilter
  */
-@WebFilter("*.do")
+//@WebFilter("*.do")
 public class IvySecuritySessionFilter implements Filter {
 	public static final Logger logger = LoggerFactory
 			.getLogger(IvySecuritySessionFilter.class);
