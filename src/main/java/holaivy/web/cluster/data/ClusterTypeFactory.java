@@ -30,4 +30,12 @@ public class ClusterTypeFactory implements FactoryBean<ClusterType> {
 		return ClusterType.None;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 }
