@@ -1,5 +1,7 @@
 package holaivy.web.cluster.data;
 
+import holaivy.comm.log.slf.util.SLU;
+
 import org.springframework.beans.factory.InitializingBean;
 
 /**
@@ -35,6 +37,7 @@ public class ClusterEnv implements InitializingBean {
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		Clusters.instance = this;
+		SLU.d("当前已启用集群配置:本机状态:" + type);
 	}
 
 }
