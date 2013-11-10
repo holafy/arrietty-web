@@ -1,12 +1,16 @@
 package ivy.web.security.control;
 
+import holaivy.comm.log.slf.util.SLU;
+import ivy.core.tool.Str;
 import ivy.json.Json;
 import ivy.web.entry.context.data.SessionUser;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -22,6 +26,45 @@ public class SecurityUtil {
 	 * @param response
 	 */
 	public static void securityFault(ServletRequest request,
+			ServletResponse response) {
+		if (CONTENTTYPE_JSON.equals(request.getContentType())) {
+			handleJsonRequest(request, response);
+			return;
+		}
+		if (request instanceof HttpServletRequest) {
+			HttpServletRequest http = (HttpServletRequest) request;
+			String value = http.getHeader("http.expect");
+			if (Str.isNotEmpty(value)) {
+				if (CONTENTTYPE_JSON.equals(value)) {
+					handleJsonRequest(request, response);
+					return;
+				}
+			}
+		}
+		handleHtmlRequest(request, response);
+	}
+
+	public static final String CONTENTTYPE_JSON = "application/json";
+
+	public static void handleHtmlRequest(ServletRequest request,
+			ServletResponse response) {
+		SecurityInfo info = SecurityInfo.getInstance();
+		if (info == null || Str.isEmpty(info.getLogin())) {
+			handleJsonRequest(request, response);
+		} else {
+			HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+			if (info != null) {
+				try {
+					httpResponse.sendRedirect(info.getLogin());
+				} catch (IOException e) {
+					SLU.e(e);
+				}
+			}
+		}
+	}
+
+	public static void handleJsonRequest(ServletRequest request,
 			ServletResponse response) {
 		PrintWriter pw = null;
 		try {
@@ -40,8 +83,6 @@ public class SecurityUtil {
 				pw.close();
 		}
 	}
-	
-	
 
 	public static void buildSessionUser(HttpSession session, SessionUser user) {
 
