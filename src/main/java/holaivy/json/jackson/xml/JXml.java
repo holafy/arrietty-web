@@ -17,7 +17,7 @@ public class JXml {
 	static {
 		xml.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES,
 				false);
-		xml.setSerializationInclusion(Inclusion.NON_NULL);
+		xml.setSerializationInclusion(org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL);
 	}
 
 	public JXml() {
