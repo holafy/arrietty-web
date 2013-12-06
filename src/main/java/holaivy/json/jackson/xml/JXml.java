@@ -7,6 +7,7 @@ import java.io.Writer;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.DeserializationConfig;
+import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 import com.fasterxml.jackson.xml.XmlMapper;
@@ -17,7 +18,10 @@ public class JXml {
 	static {
 		xml.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES,
 				false);
-		xml.setSerializationInclusion(org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL);
+//		xml.setSerializationInclusion(org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL);
+//		xml.getSerializationConfig().withSerializationInclusion(
+//				Inclusion.NON_NULL);
+		xml.configure(SerializationConfig.Feature.WRITE_NULL_PROPERTIES, false);
 	}
 
 	public JXml() {
