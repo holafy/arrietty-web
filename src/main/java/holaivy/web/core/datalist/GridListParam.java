@@ -4,8 +4,11 @@ public class GridListParam implements IGridListParam {
 	private int p;
 	private int c;
 	private int s;
+	private boolean pager;
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see holaivy.web.core.datalist.IGridListParam#getP()
 	 */
 	@Override
@@ -13,7 +16,9 @@ public class GridListParam implements IGridListParam {
 		return p;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see holaivy.web.core.datalist.IGridListParam#setP(int)
 	 */
 	@Override
@@ -21,7 +26,9 @@ public class GridListParam implements IGridListParam {
 		this.p = p;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see holaivy.web.core.datalist.IGridListParam#getC()
 	 */
 	@Override
@@ -29,7 +36,9 @@ public class GridListParam implements IGridListParam {
 		return c;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see holaivy.web.core.datalist.IGridListParam#setC(int)
 	 */
 	@Override
@@ -37,7 +46,9 @@ public class GridListParam implements IGridListParam {
 		this.c = c;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see holaivy.web.core.datalist.IGridListParam#getS()
 	 */
 	@Override
@@ -45,12 +56,24 @@ public class GridListParam implements IGridListParam {
 		return s;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see holaivy.web.core.datalist.IGridListParam#setS(int)
 	 */
 	@Override
 	public void setS(int s) {
 		this.s = s;
+	}
+
+	@Override
+	public boolean isPager() {
+		return pager;
+	}
+
+	@Override
+	public void setPager(boolean pager) {
+		this.pager = pager;
 	}
 
 }

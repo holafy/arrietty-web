@@ -14,4 +14,7 @@ public interface IGridListParam {
 
 	public abstract void setS(int s);
 
+	public boolean isPager();
+
+	public void setPager(boolean pager);
 }
