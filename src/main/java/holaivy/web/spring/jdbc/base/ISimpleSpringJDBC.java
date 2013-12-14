@@ -1,4 +1,4 @@
-package ivy.web.spring.jdbc.base;
+package holaivy.web.spring.jdbc.base;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
